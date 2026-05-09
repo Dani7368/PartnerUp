@@ -161,18 +161,15 @@ export default function WelcomeScreen() {
         </div>
 
         {/* Floating cards preview */}
-        <div className="animate-fadeInUp delay-200" style={{ width: '100%', position: 'relative', height: 120, marginTop: 8 }}>
+        <div className="animate-fadeInUp delay-200" style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, marginTop: 8, height: 110 }}>
           {[
-            { emoji: '🏠', label: { he: 'שותפים לדירה', en: 'Roommates' }, offset: 0, rotate: -5 },
-            { emoji: '✈️', label: { he: 'טיולים', en: 'Travel' }, offset: 1, rotate: 0 },
-            { emoji: '💼', label: { he: 'עסקי', en: 'Business' }, offset: 2, rotate: 5 },
+            { emoji: '🏠', label: { he: 'שותפים לדירה', en: 'Roommates' }, rotate: -6, translateY: 12 },
+            { emoji: '✈️', label: { he: 'טיולים', en: 'Travel' }, rotate: 0, translateY: -8 },
+            { emoji: '💼', label: { he: 'עסקי', en: 'Business' }, rotate: 6, translateY: 12 },
           ].map((card, i) => (
             <div
               key={i}
               style={{
-                position: 'absolute',
-                top: i === 1 ? 0 : 20,
-                left: `${i * 32 + 8}%`,
                 background: 'rgba(255,255,255,0.22)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255,255,255,0.35)',
@@ -182,9 +179,9 @@ export default function WelcomeScreen() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: 4,
-                transform: `rotate(${card.rotate}deg)`,
+                transform: `rotate(${card.rotate}deg) translateY(${card.translateY}px)`,
                 boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-                minWidth: 80,
+                minWidth: 84,
               }}
             >
               <span style={{ fontSize: 22 }}>{card.emoji}</span>
